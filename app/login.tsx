@@ -26,7 +26,12 @@ export default function LoginScreen() {
       router.push('/home'); // ou l'écran suivant
     } catch (error) {
       console.log(error);
-      Alert.alert('Erreur', 'Email ou mot de passe invalide');
+      let message = 'Échec de la connexion. Vérifiez vos identifiants.';
+      if (typeof error === 'object' && error !== null && 'response' in error) {
+        const err = error as { response?: { data?: { message?: string } } };
+        message = err.response?.data?.message || message;
+      }
+      Alert.alert('Erreur', message);
     }
   };
 
@@ -79,8 +84,9 @@ export default function LoginScreen() {
       {/* Bouton Connexion */}
       <TouchableOpacity
         className="bg-blue-600 py-4 rounded-2xl items-center mb-8 active:opacity-90"
+        onPress={handleLogin}
       >
-        <Text className="text-white font-semibold text-lg" onPress={handleLogin}>Connexion</Text>
+        <Text className="text-white font-semibold text-lg">Connexion</Text>
       </TouchableOpacity>
 
       {/* Lien inscription */}
