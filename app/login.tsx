@@ -1,23 +1,27 @@
 import { Octicons } from '@expo/vector-icons';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
 import { Alert, Pressable, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { login } from '../api/service';
 import CustomKeyBoardView from '../components/CustomKeyBoardView';
 import "../global.css";
+//import { login } from './../api/service';
+import { useApp } from "./context/Acces";
 
 export default function LoginScreen() {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { setAccesUser,setAccesTeam } = useApp();
 
   const handleLogin = async () => {
     try {
-      const response = await login({ email, password });
-      const token = response.data.token;
-      await AsyncStorage.setItem('userToken', token);
-      Alert.alert('Succès', 'Connexion réussie !');
+      //const response = await login({ email, password });
+      // const token = response.data.token;
+      //setAccesUser(response.data.user.accessUser)
+      //setAccesTeam(response.data.user.accessTeam)
+      // await AsyncStorage.setItem('userToken', token);
+      // Alert.alert('Succès', 'Connexion réussie !');
+
       router.push('/home');
     } catch (error) {
       console.log(error);
