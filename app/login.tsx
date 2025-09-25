@@ -15,15 +15,10 @@ export default function LoginScreen() {
   const handleLogin = async () => {
     try {
       const response = await login({ email, password });
-
-      // ⚠️ Vérifie selon la structure de ton API
-      const token = response.data.token; // ex: { token: "..." }
-
-      // ✅ Stockage du token
+      const token = response.data.token;
       await AsyncStorage.setItem('userToken', token);
-
       Alert.alert('Succès', 'Connexion réussie !');
-      router.push('/home'); // ou l'écran suivant
+      router.push('/home');
     } catch (error) {
       console.log(error);
       let message = 'Échec de la connexion. Vérifiez vos identifiants.';
@@ -37,7 +32,6 @@ export default function LoginScreen() {
 
   return (
     <CustomKeyBoardView>
-      {/* Titre */}
       <Text className="text-4xl font-extrabold text-center">
         SMUR Pontoise
       </Text>
@@ -45,7 +39,6 @@ export default function LoginScreen() {
         Se connecter
       </Text>
 
-      {/* Champ Email */}
       <View className="mb-5">
         <View className="flex-row items-center bg-gray-100 px-4 py-3 rounded-2xl border border-gray-200">
           <Octicons name="mail" size={20} color="gray" />
@@ -61,7 +54,6 @@ export default function LoginScreen() {
         </View>
       </View>
 
-      {/* Champ Mot de passe */}
       <View className="mb-3">
         <View className="flex-row items-center bg-gray-100 px-4 py-3 rounded-2xl border border-gray-200">
           <Octicons name="lock" size={20} color="gray" />
@@ -76,12 +68,10 @@ export default function LoginScreen() {
         </View>
       </View>
 
-      {/* Lien mot de passe oublié */}
       <Text className="font-semibold text-right text-gray-500 mb-6">
         Mot de passe oublié ?
       </Text>
 
-      {/* Bouton Connexion */}
       <TouchableOpacity
         className="bg-blue-600 py-4 rounded-2xl items-center mb-8 active:opacity-90"
         onPress={handleLogin}
@@ -89,7 +79,6 @@ export default function LoginScreen() {
         <Text className="text-white font-semibold text-lg">Connexion</Text>
       </TouchableOpacity>
 
-      {/* Lien inscription */}
       <View className="flex-row justify-center">
         <Text className="font-medium text-gray-600">
           Pas encore de compte ?{' '}

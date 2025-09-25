@@ -11,6 +11,10 @@ export default function AppLayout() {
         name="home" 
         options={{ animation: "fade", headerShown: false }} 
       />
+      <Stack.Screen 
+        name="register" 
+        options={{ animation: "fade", headerShown: false }} 
+      />
     </Stack>
   );
 }
