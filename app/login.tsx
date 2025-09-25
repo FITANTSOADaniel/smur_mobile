@@ -1,7 +1,9 @@
 import { Octicons } from '@expo/vector-icons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
-import { Pressable, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, Pressable, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { login } from '../api/service';
 import CustomKeyBoardView from '../components/CustomKeyBoardView';
 import "../global.css";
 
@@ -10,10 +12,31 @@ export default function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const handleLogin = async () => {
+    try {
+      const response = await login({ email, password });
+
+      // ⚠️ Vérifie selon la structure de ton API
+      const token = response.data.token; // ex: { token: "..." }
+
+      // ✅ Stockage du token
+      await AsyncStorage.setItem('userToken', token);
+
+      Alert.alert('Succès', 'Connexion réussie !');
+      router.push('/home'); // ou l'écran suivant
+    } catch (error) {
+      console.log(error);
+      Alert.alert('Erreur', 'Email ou mot de passe invalide');
+    }
+  };
+
   return (
     <CustomKeyBoardView>
       {/* Titre */}
-      <Text className="text-3xl font-extrabold text-blue-600 mb-10 text-center">
+      <Text className="text-4xl font-extrabold text-center">
+        SMUR Pontoise
+      </Text>
+      <Text className="text-3xl font-bold text-blue-600 mb-10 text-center">
         Se connecter
       </Text>
 
@@ -57,7 +80,7 @@ export default function LoginScreen() {
       <TouchableOpacity
         className="bg-blue-600 py-4 rounded-2xl items-center mb-8 active:opacity-90"
       >
-        <Text className="text-white font-semibold text-lg">Connexion</Text>
+        <Text className="text-white font-semibold text-lg" onPress={handleLogin}>Connexion</Text>
       </TouchableOpacity>
 
       {/* Lien inscription */}
