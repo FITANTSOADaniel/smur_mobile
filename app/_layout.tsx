@@ -5,11 +5,11 @@ export default function AppLayout() {
     <Stack>
       <Stack.Screen 
         name="login" 
-        options={{ headerShown: false }} 
+        options={{ animation: "fade", headerShown: false }} 
       />
       <Stack.Screen 
         name="home" 
-        options={{ headerShown: false }} 
+        options={{ animation: "fade", headerShown: false }} 
       />
     </Stack>
   );

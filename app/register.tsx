@@ -14,7 +14,7 @@ export default function LoginScreen() {
     <CustomKeyBoardView>
       {/* Titre */}
       <Text className="text-3xl font-extrabold text-blue-600 mb-10 text-center">
-        Se connecter
+        S'inscrire
       </Text>
 
       {/* Champ Email */}
@@ -48,26 +48,21 @@ export default function LoginScreen() {
         </View>
       </View>
 
-      {/* Lien mot de passe oublié */}
-      <Text className="font-semibold text-right text-gray-500 mb-6">
-        Mot de passe oublié ?
-      </Text>
-
       {/* Bouton Connexion */}
       <TouchableOpacity
         className="bg-blue-600 py-4 rounded-2xl items-center mb-8 active:opacity-90"
       >
-        <Text className="text-white font-semibold text-lg">Connexion</Text>
+        <Text className="text-white font-semibold text-lg">S'inscrire</Text>
       </TouchableOpacity>
 
       {/* Lien inscription */}
       <View className="flex-row justify-center">
         <Text className="font-medium text-gray-600">
-          Pas encore de compte ?{' '}
+          Vous avez déjà de compte ?{' '}
         </Text>
-        <Pressable onPress={() => router.push('/register')}>
+        <Pressable onPress={() => router.push('/login')}>
           <Text className="font-bold text-blue-600">
-            S'inscrire ici
+            Se connecter ici
           </Text>
         </Pressable>
       </View>
