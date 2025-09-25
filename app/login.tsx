@@ -32,7 +32,7 @@ export default function LoginScreen() {
 
   return (
     <CustomKeyBoardView>
-      <Text className="text-4xl font-extrabold text-center">
+      <Text className="text-4xl font-extrabold text-center text-gray-500">
         SMUR Pontoise
       </Text>
       <Text className="text-3xl font-bold text-blue-600 mb-10 text-center">

@@ -11,7 +11,10 @@ export default function LoginScreen() {
 
   return (
     <CustomKeyBoardView>
-      <Text className="text-4xl font-extrabold text-center">
+      <Text>
+        Inscription pas encore fonctionnel, juste API register dans symfony
+      </Text>
+      <Text className="text-4xl font-extrabold text-center text-gray-500">
         SMUR Pontoise
       </Text>
       <Text className="text-3xl font-extrabold text-blue-600 mb-10 text-center">
@@ -106,9 +109,6 @@ export default function LoginScreen() {
           </Text>
         </Pressable>
       </View>
-      <Text>
-        Inscription pas encore fonctionnel, juste API register dans symfony
-      </Text>
     </CustomKeyBoardView>
   );
 }
