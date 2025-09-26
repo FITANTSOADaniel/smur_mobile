@@ -17,6 +17,14 @@ export default function AppLayout() {
           name="register" 
           options={{ animation: "fade", headerShown: false }} 
         />
+        <Stack.Screen 
+          name="gestionUser" 
+          options={{ animation: "fade", headerShown: false }} 
+        />
+        <Stack.Screen 
+          name="userDetail" 
+          options={{ animation: "fade", headerShown: false }} 
+        />
       </Stack>
     </AppProvider>
   );

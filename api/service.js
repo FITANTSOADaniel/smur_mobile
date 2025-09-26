@@ -12,6 +12,9 @@ export const register = async (dataToSend) => {
 export const getAllUsers = async () => {
   return api.get("/users");
 };
+export const getUsers = async (id) => {
+  return api.get(`/users/${id}`);
+};
 export const addUsers = async (dataToSend) => {
   return api.post("/users", dataToSend);
 };

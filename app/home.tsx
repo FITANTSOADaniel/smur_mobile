@@ -30,7 +30,7 @@ export default function HomeScreen() {
           className={`rounded-2xl p-5 shadow-md mb-3 ${
             accesUser ? 'bg-blue-600 active:opacity-90' : 'bg-gray-400'
           }`}
-          onPress={() => router.push('/home')}
+          onPress={() => router.push('/gestionUser')}
         >
           <Text
             className={`text-lg font-bold text-center ${
